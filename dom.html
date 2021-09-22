@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        button {
+            border-style: none;
+            color: chocolate;
+            background: cornflowerblue;
+            cursor: pointer;
+        }
+
+        .wrap {
+            width: 400px;
+            height: 500px;
+            background: #ccc;
+            margin: 100px auto;
+            box-sizing: border-box;
+        }
+
+        table,
+        th,
+        tr,
+        td {
+            border: 1px solid red;
+        }
+
+        .content {
+            width: 400px;
+            height: 100px;
+            background: brown;
+            margin: 100px auto;
+        }
+
+        .nav {
+            width: 400px;
+            height: 21px;
+            background: cornflowerblue;
+        }
+
+        .nav li {
+            list-style: none;
+            width: 25%;
+            float: left;
+            text-align: center;
+            color: #fff;
+        }
+
+        .bb {
+            background: chartreuse;
+        }
+
+        .content div {
+            display: none;
+            text-align: center;
+        }
+        .content .one{
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <button>按钮1</button>
+    <button>按钮2</button>
+    <button>按钮3</button>
+    <button>按钮4</button>
+    <button>按钮5</button>
+    <script>
+
+        var btn = document.querySelectorAll("button");
+        for (var i = 0; i < btn.length; i++) {
+            btn[i].onclick = function () {
+                var cl = Math.random() * 255;
+                for (var i = 0; i < btn.length; i++) {
+                    btn[i].style.background = '';
+                }
+                this.style.background = "rgb(" + cl + "," + cl + "," + cl + ")";
+                console.log(this.style.color);
+            }
+        }
+    </script> -->
+
+    <!-- 表格复选框 -->
+    <!-- <div class="wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th><input type="checkbox" id="cc"></th>
+                    <th>商品</th>
+                    <th>价格</th>
+                    <th>数量</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>鲁班</td>
+                    <td>8元</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>后羿</td>
+                    <td>9元</td>
+                    <td>8</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>黄忠</td>
+                    <td>288元</td>
+                    <td>1</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <script>
+        var cc = document.getElementById("cc");
+        var al = document.querySelector('tbody').querySelectorAll('input');
+
+        cc.onclick = function () {
+            for (var i = 0; i < al.length; i++) {
+                if (cc.checked == true) {
+                    al[i].checked = true;
+                } else {
+                    al[i].checked = false;
+                }
+            }
+        }
+        for (var i = 0; i < al.length; i++) {
+            al[i].onclick = function () {
+                var flag = true;
+                for (var i = 0; i < al.length; i++) {
+                    if (!al[i].checked) {
+                        flag = false;
+                        break;
+                    }
+                }
+                cc.checked = flag;
+            }
+        }
+    </script> -->
+    <div class="content">
+        <ul class="nav">
+            <li index="0">首页</li>
+            <li index="1">导航</li>
+            <li index="2">侧边栏</li>
+            <li index="3">尾部</li>
+        </ul>
+        <div class="one">1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+    </div>
+    <script>
+        var a = document.getElementsByClassName("nav");
+        var b = document.querySelectorAll("li");
+        var item = document.querySelector(".content").querySelectorAll("div");
+        for (var i = 0; i < b.length; i++) {
+            b[i].onclick = function () {
+                for (var i = 0; i < b.length; i++) {
+                    b[i].className = "";
+                }
+                this.className = "bb";
+
+                var index = this.getAttribute('index');
+
+                for (var i = 0; i < b.length; i++) {
+                    item[i].style.display = 'none';
+                }
+                item[index].style.display = "block";
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>

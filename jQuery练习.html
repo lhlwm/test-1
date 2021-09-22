@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.min.js"></script>
+    <style>
+        .box2{
+            width: 295px;
+            height: 235px;
+            background: red;
+            position: relative;
+            float: left;
+        }
+        .box2 div{
+            display: inline-block;
+            margin-left: 0;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .box2 div img {
+            width: 295px;
+        }
+       .current{
+           display:block;
+       }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div class="box1">
+            <button>小按钮</button>
+            <button>小按钮</button>
+            <button>小按钮</button>
+            <button>小按钮</button>
+        </div>
+        <div class="box2">
+            <div style="z-index: 1;"><img src="pictures/w.jpg" alt=""></div>
+            <div><img src="pictures/q.jpg" alt=""></div>
+            <div><img src="pictures/r.jpg" alt=""></div>
+            <div><img src="pictures/t.jpg" alt=""></div>
+        </div>
+    </div>
+   
+    </div>
+    <script>
+       $(function() {
+           $("button").click(function() {
+               $(this).css("background","red");
+               $(this).siblings().css("background","");
+           });
+           $("button").click(function() {
+            var index=$(this).index();
+               console.log(index);
+              $(".box2").children().eq(index).css("z-index",1).siblings().css("z-index",0);
+             
+           })
+
+       })
+    </script>
+</body>
+
+</html>

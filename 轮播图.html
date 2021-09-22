@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>轮播图</title>
+    <script src="js/jquery.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .content {
+            width: 590px;
+            height: 470px;
+            margin: 50px auto;
+            border: 1px solid red;
+            position: relative;
+        }
+
+        /* 左右箭头图标 */
+        .left {
+            font-size: 48px;
+            opacity: .7;
+            position: absolute;
+            left: 0;
+            bottom: 50%;
+            transform: translate(0, 50%);
+            /* z-index: 999; */
+        }
+
+        .right {
+            font-size: 48px;
+            opacity: .7;
+            position: absolute;
+            right: 0;
+            bottom: 50%;
+            transform: translate(0, 50%);
+            /* z-index: 999; */
+        }
+
+        /* 轮播图片 */
+        .content ul {
+            width: 2400px;
+            position: absolute;
+            left: 0;
+        }
+
+        .content li {
+            list-style: none;
+            float: left;
+            margin: 0 10px 0 0;
+            display: none;
+        }
+
+        .content li img {
+            width: 590px;
+        }
+
+        .content .current {
+            display: block;
+        }
+
+        /* 动态小圆圈样式 */
+        .content .dians {
+            width: 570px;
+            height: 40px;
+            position: absolute;
+            left: 50%;
+            bottom: 7%;
+            transform: translate(-50%, 7%);
+            text-align: center;
+            /* margin: 0 auto; */
+        }
+
+        .content .dians li {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: red;
+            display: inline-block;
+            opacity: .5;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <span class="left">&lt;</span>
+        <span class="right">&gt;</span>
+        <ul>
+            <li class="current"><a href=""><img src="pictures/w.jpg" alt=""></a></li>
+            <li><a href=""><img src="pictures/q.jpg" alt=""></a></li>
+            <li><a href=""><img src="pictures/r.jpg" alt=""></a></li>
+            <li><a href=""><img src="pictures/t.jpg" alt=""></a></li>
+        </ul>
+        <ol class="dians">
+            <!-- <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li> -->
+        </ol>
+    </div>
+    <script>
+        $(function () {
+
+            // 鼠标移入显示左右两个小图标，移出不显示
+            $(".content").mouseenter(function () {
+                $(".left").css("zIndex", "999");
+                $(".right").css("zIndex", "999");
+            });
+            $(".content").mouseleave(function () {
+                $(".left").css("zIndex", "0");
+                $(".right").css("zIndex", "0");
+            });
+            // 动态生成小圆圈
+            for (var i = 0; i < $("img").length; i++) {
+                var li = "<li></li>";
+                $(".dians").append(li);
+                $(".dians").children().eq(i).attr("data-index", i);
+            };
+            // 点击小圆圈，背景图片更换，其他小圆圈不变
+            $(".dians li").click(function () {
+                $(this).css("background", "#fff").siblings().css("background", "");
+                // 点击小圆圈，对应的图片显示
+                var index = $(this).attr("data-index");
+                $("ul").children().eq(index).addClass("current").siblings().removeClass("current");
+            });
+            // 点击左右小箭头更改图片
+
+
+            $(".left").click(function () {
+
+                var len = $("img").length;
+                for (let i = 0; i < len; i++) {
+                    setTimeout(function() {
+                        $("ul").children().eq(i).addClass("current");
+
+                    },1000)
+                   
+                }
+            })
+
+
+
+            // (function autochange(){
+            //     timer= setInterval(function() {
+            //       $(".dians li").click();
+            //     },2000);
+            // })();
+        })
+    </script>
+
+</body>
+
+</html>

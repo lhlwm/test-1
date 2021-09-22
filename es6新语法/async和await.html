@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>async和await</title>
+</head>
+
+<body>
+    <script>
+        // let p=new Promise(function(resolve,reject) {
+        //     let data='西游记和金瓶梅的爱情故事';
+        //     resolve(data);
+        // }).then(function(value) {
+        //     console.log(value);
+
+        // },function(reason) {
+        //     console.warn(reason);
+        // })
+
+        // let p=new Promise(function(resolve,reject) {
+        //     let data = '找份工作';
+        //     resolve(data);
+        // })
+        // async function main() {
+        //     let a=await p;
+        //     console.log(a);
+        // }
+        // main();
+
+        // let p=new Promise(function(resolve,reject) {
+        //     let data = '找份工作';
+        //     reject(data);
+        // })
+        // async function main() {
+        //     try{
+        //         let a=await p;
+        //          console.log(a);
+        //     }
+        //     catch(e){
+        //         console.warn(e);
+        //     }
+        // }
+        // main();
+
+        function sendAjax(url) {
+            return new Promise(function (resolve, reject) {
+                let xhr;
+                if (window.XMLHttpRequest) {
+                    xhr = new XMLHttpRequest();
+                } else {
+                    xhr = new ActiveXObject("Microsoft XMLHTTPRequest");
+                }
+                xhr.open("GET", url);
+                xhr.send();
+                xhr.onreadystatechange = function () {
+                    if (this.readyState === 4) {
+                        if (this.status >= 200 && this.status < 300) {
+                            resolve(this.response);
+                        } else {
+                            reject(this.status);
+                        }
+                    }
+                }
+            })
+        }
+
+        var p = sendAjax('https://www.baidu.com/').then(function (value) {
+                console.log(value);
+            }, function (reason) {
+                console.log(reason);
+            });
+        console.log(p);
+    </script>
+
+</body>
+
+</html>

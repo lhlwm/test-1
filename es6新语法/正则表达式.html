@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正则表达式</title>
+</head>
+<body>
+    <script>
+        // let str="<a href='www.baidu.com'>百度</a>";
+        // // 注意括号的位置和问号的位置
+        // let regx=/<a href='(?<href>.*)'>(?<text>.*)<\/a>/g;
+        // const result=regx.exec(str);
+        // // console.log(result);
+        // console.log(result.groups.href);
+        // console.log(result.groups.text);
+        var person = {
+    "nickname": "老三",
+    "age": 30,
+    "sex": "男"
+};
+//解构时 {}中的变量名，不能加引号
+var {nickname, age, sex} = person;
+console.log(nickname, age, sex);
+//可以忽略值  直接忽略 不需要占位
+var {nickname, sex} = person;
+console.log(nickname, sex);
+
+        
+        
+    </script>
+</body>
+</html>

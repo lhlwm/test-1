@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="css/mystyle.css"> -->
+    <style>
+        img {
+            width: 100px;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <button>
+            点击
+        </button>
+        <p>
+
+        </p>
+    </div>
+    <script>
+        var btn = document.querySelector('button');
+        var p = document.querySelector('p');
+        var timer = 5;
+        btn.addEventListener('click', function () {
+            setInterval(() => {
+                if (timer == 0) {
+                    location.href = 'http://www.baidu.com';
+                } else {
+                    p.innerHTML = "您将在" + timer + "后进行跳转";
+                    timer--;
+                }
+            }, 1000);
+        })
+    </script>
+</body>
+
+</html>

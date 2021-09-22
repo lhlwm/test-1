@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="module">
+        import * as p from  './ceshi.js';
+        p.a();
+
+    </script>
+    <script>
+        // let a='鲁洪林';
+        // let b= `${a}是你爹`
+        // console.log(b);
+        // let a="大爷";
+        // let b=function() {
+        //     console.log(a);
+        // }
+        // b()
+        let a=function(a,b,...c){
+            console.log(a);
+            console.log(b);
+            console.log(c);
+        }
+        a(1,2,3,4,6)
+    </script>
+</body>
+</html>

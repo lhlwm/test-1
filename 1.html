@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .one {
+            width: 1000px;
+            height: 800px;
+            background: red;
+            margin: 10px auto;
+
+        }
+
+        .two {
+            width: 200px;
+            height: 200px;
+            background: yellow;
+            position: fixed;
+            right: 0;
+            bottom: 10%;
+            display: none;
+        }
+
+        .current {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="one">
+
+    </div>
+    <div class="two">
+
+    </div>
+    <script>
+        // $(function(){
+        //     // $(document).scrollTop(0);
+        //     // var boxTop=$(".one").offset().top;
+        //     // $(window).scroll(function(){
+
+        //     //     // console.log($(document).scrollTop());
+        //     //     if($(document).scrollTop()>=boxTop){
+        //     //         $(".two").stop().fadeIn();
+        //     //     }else{
+        //     //         $(".two").stop().fadeOut();
+        //     //     }
+        //     // });
+        //     // $(".two").click(function() {
+        //     //     $("body,html").stop().animate({
+        //     //         scrollTop:0
+        //     //     })
+        //     // })
+        //     var reg=/\w*/;
+        //     var str="213213";
+        //     console.log(reg.test(str));
+
+        // })
+
+
+        for (var i = 0; i <= 5; i++) {
+            (function (i) {
+                setTimeout(function timer() {
+                    console.log(i);
+                }, 1000 * i);
+            })(i)
+            
+        }
+        // for (let i = 0; i <= 5; i++) {
+        //     setTimeout(function timer() {
+        //             console.log(i);
+        //         }, 1000 * i);
+        //     }
+    </script>
+
+</body>
+
+</html>
